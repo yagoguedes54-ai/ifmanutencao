@@ -31,7 +31,9 @@
   const a = document.getElementById('abrir');
   if (ok) {
     a.href = APP_URL;
-    setTimeout(function () { location.replace(APP_URL); }, 400);
+    const instalado = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+   if (instalado) { location.replace(APP_URL); }
+   else { document.getElementById('msg').textContent = 'Para instalar: menu ⋮ do Chrome > Instalar app.'; };
   } else {
     document.getElementById('msg').textContent = 'Falta configurar o link do app no arquivo index.html.';
     a.hidden = true;
