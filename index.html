@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IFManutenção</title>
+<meta name="theme-color" content="#1f6b4f">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="IFManutenção">
+<style>
+  html,body{height:100%;margin:0}
+  body{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+       background:#17543c;color:#fff;font:16px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;padding:24px}
+  img{width:120px;height:120px;border-radius:28px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+  a{display:inline-block;background:#fff;color:#17543c;font-weight:700;text-decoration:none;padding:12px 22px;border-radius:10px}
+  p{margin:0;opacity:.85;max-width:320px}
+</style>
+</head>
+<body>
+  <img src="icon-512.png" alt="Ícone do IFMan">
+  <p id="msg">Abrindo o IFManutenção…</p>
+  <a id="abrir" href="#">Abrir o app</a>
+<script>
+  // Cole aqui o link completo do App da Web (Implantar > Gerenciar implantações > URL)
+  const APP_URL = 'https://script.google.com/a/macros/ifpa.edu.br/s/AKfycbw07bgBAurZIeN856y36-JGEA_ovHhOZrzSprPot7jkZa7WSgMNpLPSkkPrj1lSBwWFIA/exec';
+
+  const ok = APP_URL.indexOf('https://script.google.com/') === 0;
+  const a = document.getElementById('abrir');
+  if (ok) {
+    a.href = APP_URL;
+    setTimeout(function () { location.replace(APP_URL); }, 400);
+  } else {
+    document.getElementById('msg').textContent = 'Falta configurar o link do app no arquivo index.html.';
+    a.hidden = true;
+  }
+</script>
+</body>
+</html>
